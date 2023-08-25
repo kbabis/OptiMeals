@@ -15,3 +15,9 @@ public struct SplashView: View {
             .padding()
     }
 }
+
+struct SplashView_Previews: PreviewProvider {
+    static var previews: some View {
+        SplashView(store: .init(initialState: .init(), reducer: SplashFeature.init))
+    }
+}
