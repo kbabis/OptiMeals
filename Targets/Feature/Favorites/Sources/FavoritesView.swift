@@ -1,17 +1,17 @@
 import ComposableArchitecture
 import SwiftUI
 
-struct FavoritesView: View {
+public struct FavoritesView: View {
     let store: StoreOf<FavoritesFeature>
     @ObservedObject var viewStore: ViewStoreOf<FavoritesFeature>
 
-    init(store: StoreOf<FavoritesFeature>) {
+    public init(store: StoreOf<FavoritesFeature>) {
         self.store = store
         self.viewStore = ViewStore(store, observe: { $0 })
     }
 
-    var body: some View {
-        Text("Happy coding!")
+    public var body: some View {
+        Text("Favorites!")
     }
 }
 

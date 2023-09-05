@@ -14,7 +14,9 @@ struct OptiMealsApp: App {
     var body: some Scene {
         WindowGroup {
             if !_XCTIsTesting {
-                SplashView(store: store)
+                NavigationStack {
+                    SplashView(store: store)
+                }
             }
         }
     }

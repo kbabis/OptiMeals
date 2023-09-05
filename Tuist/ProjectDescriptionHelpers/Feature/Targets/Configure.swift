@@ -7,6 +7,7 @@ struct Configure: TargetConvertible {
     var target: ProjectDescription.Target {
         FrameworkBuilder {
             $0.dependencies = [
+                Feature.tabs.dependency,
                 Core.optiMealsKit.dependency,
                 Core.optiMealsUI.dependency,
                 ThirdParty.composableArchitecture.dependency

@@ -7,6 +7,7 @@ struct Dish: TargetConvertible {
     var target: ProjectDescription.Target {
         FrameworkBuilder {
             $0.dependencies = [
+                Feature.recipe.dependency,
                 Core.optiMealsKit.dependency,
                 Core.optiMealsUI.dependency,
                 ThirdParty.composableArchitecture.dependency

@@ -1,17 +1,17 @@
 import ComposableArchitecture
 import SwiftUI
 
-struct HomeView: View {
+public struct HomeView: View {
     let store: StoreOf<HomeFeature>
     @ObservedObject var viewStore: ViewStoreOf<HomeFeature>
 
-    init(store: StoreOf<HomeFeature>) {
+    public init(store: StoreOf<HomeFeature>) {
         self.store = store
         self.viewStore = ViewStore(store, observe: { $0 })
     }
 
-    var body: some View {
-        Text("Happy coding!")
+    public var body: some View {
+        Text("Home!")
     }
 }
 
