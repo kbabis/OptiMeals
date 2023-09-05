@@ -7,6 +7,7 @@ struct Onboarding: TargetConvertible {
     var target: ProjectDescription.Target {
         FrameworkBuilder {
             $0.dependencies = [
+                Feature.configure.dependency,
                 Core.optiMealsKit.dependency,
                 Core.optiMealsUI.dependency,
                 ThirdParty.composableArchitecture.dependency
