@@ -1,11 +1,15 @@
 import ComposableArchitecture
 
-struct SettingsFeature: Reducer {
-    struct State: Equatable {}
+public struct SettingsFeature: Reducer {
+    public init() {}
     
-    enum Action {}
+    public struct State: Equatable {
+        public init() {}
+    }
     
-    var body: some ReducerOf<Self> {
+    public enum Action {}
+    
+    public var body: some ReducerOf<Self> {
         EmptyReducer()
     }
 }

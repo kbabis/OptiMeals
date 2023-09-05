@@ -1,22 +1,30 @@
 import ComposableArchitecture
 import SwiftUI
+import Tabs
 
-struct ConfigureView: View {
+public struct ConfigureView: View {
     let store: StoreOf<ConfigureFeature>
     @ObservedObject var viewStore: ViewStoreOf<ConfigureFeature>
 
-    init(store: StoreOf<ConfigureFeature>) {
+    public init(store: StoreOf<ConfigureFeature>) {
         self.store = store
         self.viewStore = ViewStore(store, observe: { $0 })
     }
 
-    var body: some View {
-        Text("Happy coding!")
+    public var body: some View {
+        VStack {
+            Button("go to tabs", action: { viewStore.send(.goToTabsTapped) })
+        }
+        .navigationDestination(store: store.scope(state: \.$tabs, action: { .tabs($0) })) { store in
+            TabsView(store: store)
+        }
     }
 }
 
 struct ConfigureView_Previews: PreviewProvider {
     static var previews: some View {
-        ConfigureView(store: .init(initialState: .init(), reducer: ConfigureFeature.init))
+        NavigationStack {
+            ConfigureView(store: .init(initialState: .init(), reducer: ConfigureFeature.init))
+        }
     }
 }

@@ -1,17 +1,17 @@
 import ComposableArchitecture
 import SwiftUI
 
-struct SettingsView: View {
+public struct SettingsView: View {
     let store: StoreOf<SettingsFeature>
     @ObservedObject var viewStore: ViewStoreOf<SettingsFeature>
 
-    init(store: StoreOf<SettingsFeature>) {
+    public init(store: StoreOf<SettingsFeature>) {
         self.store = store
         self.viewStore = ViewStore(store, observe: { $0 })
     }
 
-    var body: some View {
-        Text("Happy coding!")
+    public var body: some View {
+        Text("Settings!")
     }
 }
 

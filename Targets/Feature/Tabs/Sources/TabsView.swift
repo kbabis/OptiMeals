@@ -1,17 +1,39 @@
 import ComposableArchitecture
 import SwiftUI
+import Home
+import Favorites
+import Settings
 
-struct TabsView: View {
+public struct TabsView: View {
     let store: StoreOf<TabsFeature>
     @ObservedObject var viewStore: ViewStoreOf<TabsFeature>
 
-    init(store: StoreOf<TabsFeature>) {
+    public init(store: StoreOf<TabsFeature>) {
         self.store = store
         self.viewStore = ViewStore(store, observe: { $0 })
     }
-
-    var body: some View {
-        Text("Happy coding!")
+    
+    public var body: some View {
+        TabView {
+            HomeView(store: store.scope(state: \.home, action: { .home($0) }))
+                .tabItem {
+                    Image(systemName: "house")
+                    Text("Home")
+                }
+            
+            FavoritesView(store: store.scope(state: \.favorites, action: { .favorites($0) }))
+                .tabItem {
+                    Image(systemName: "heart")
+                    Text("Favorites")
+                }
+            
+            SettingsView(store: store.scope(state: \.settings, action: { .settings($0) }))
+                .tabItem {
+                    Image(systemName: "gear")
+                    Text("Settings")
+                }
+        }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
