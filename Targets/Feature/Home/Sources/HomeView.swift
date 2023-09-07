@@ -11,12 +11,23 @@ public struct HomeView: View {
     }
 
     public var body: some View {
-        Text("Home!")
+        VStack {
+            
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {}) {
+                    Image(systemName: "magnifyingglass")
+                }
+            }
+        }
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(store: .init(initialState: .init(), reducer: HomeFeature.init))
+        NavigationStack {
+            HomeView(store: .init(initialState: .init(), reducer: HomeFeature.init))
+        }
     }
 }

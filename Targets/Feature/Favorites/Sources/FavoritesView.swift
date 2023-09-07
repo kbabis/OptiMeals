@@ -1,5 +1,6 @@
 import ComposableArchitecture
 import SwiftUI
+import Dish
 
 public struct FavoritesView: View {
     let store: StoreOf<FavoritesFeature>
@@ -11,12 +12,25 @@ public struct FavoritesView: View {
     }
 
     public var body: some View {
-        Text("Favorites!")
+        VStack {
+            Text("Favorites!")
+            
+            Button(
+                "Dish details",
+                action: { viewStore.send(.dishDetailsButtonTapped) }
+            )
+        }
+        .navigationDestination(
+            store: store.scope(state: \.$dish, action: { .dish($0) })) { store in
+                DishView(store: store)
+            }
     }
 }
 
 struct FavoritesView_Previews: PreviewProvider {
     static var previews: some View {
-        FavoritesView(store: .init(initialState: .init(), reducer: FavoritesFeature.init))
+        NavigationStack {
+            FavoritesView(store: .init(initialState: .init(), reducer: FavoritesFeature.init))
+        }
     }
 }

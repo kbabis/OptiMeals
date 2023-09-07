@@ -1,11 +1,15 @@
 import ComposableArchitecture
 
-struct DishFeature: Reducer {
-    struct State: Equatable {}
+public struct DishFeature: Reducer {
+    public init() {}
+
+    public struct State: Equatable {
+        public init() {}
+    }
     
-    enum Action {}
+    public enum Action {}
     
-    var body: some ReducerOf<Self> {
+    public var body: some ReducerOf<Self> {
         EmptyReducer()
     }
 }
