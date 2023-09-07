@@ -19,4 +19,3 @@ struct Dish: TargetConvertible {
                deploymentTarget: Global.deploymentTarget)
     }
 }
-

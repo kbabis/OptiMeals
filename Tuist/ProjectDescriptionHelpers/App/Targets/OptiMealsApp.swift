@@ -10,6 +10,7 @@ struct OptiMealsApp: TargetConvertible {
             .set(bundleDisplayName: "$(APP_NAME)")
             .set(doesUseNonExemptEncryption: false)
             .set(supportedInterfaceOrientations: [.portrait])
+            .set(launchStoryboardName: "LaunchScreen")
             .build()
     }
     
