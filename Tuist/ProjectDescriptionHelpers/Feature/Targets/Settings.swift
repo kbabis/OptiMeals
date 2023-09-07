@@ -18,4 +18,3 @@ struct Settings: TargetConvertible {
                deploymentTarget: Global.deploymentTarget)
     }
 }
-

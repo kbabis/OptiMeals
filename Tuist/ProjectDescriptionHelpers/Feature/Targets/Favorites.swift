@@ -7,6 +7,7 @@ struct Favorites: TargetConvertible {
     var target: ProjectDescription.Target {
         FrameworkBuilder {
             $0.dependencies = [
+                Feature.dish.dependency,
                 Core.optiMealsKit.dependency,
                 Core.optiMealsUI.dependency,
                 ThirdParty.composableArchitecture.dependency

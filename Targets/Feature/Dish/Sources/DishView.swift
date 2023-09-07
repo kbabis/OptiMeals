@@ -1,16 +1,16 @@
 import ComposableArchitecture
 import SwiftUI
 
-struct DishView: View {
+public struct DishView: View {
     let store: StoreOf<DishFeature>
     @ObservedObject var viewStore: ViewStoreOf<DishFeature>
 
-    init(store: StoreOf<DishFeature>) {
+    public init(store: StoreOf<DishFeature>) {
         self.store = store
         self.viewStore = ViewStore(store, observe: { $0 })
     }
 
-    var body: some View {
+    public var body: some View {
         Text("Happy coding!")
     }
 }
